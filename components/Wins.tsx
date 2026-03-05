@@ -26,7 +26,7 @@ export default function Wins() {
           items={marqueeItems}
           speed={18}
           direction="left"
-          className="py-3.5 font-display text-xs tracking-[0.3em] text-gold/40"
+          className="py-3.5 font-display text-xs tracking-[0.3em] text-gold/70"
         />
       </div>
 
