@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --gold: #c8991f;
+  --gold-light: #f0c040;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #060407;
+  color: #f2ede0;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Noise grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f0c040 0%, #c8991f 50%, #f0c040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* White to grey gradient */
+.text-hero-gradient {
+  background: linear-gradient(180deg, #f2ede0 0%, rgba(242,237,224,0.55) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold border glow */
+.gold-border {
+  border: 1px solid rgba(200, 153, 31, 0.25);
+}
+
+/* Glass with gold tint */
+.glass-gold {
+  background: rgba(200, 153, 31, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 153, 31, 0.15);
+}
+
+.glass-dark {
+  background: rgba(14, 11, 18, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Gold glow box shadow */
+.glow-gold {
+  box-shadow: 0 0 60px rgba(200, 153, 31, 0.2), 0 0 120px rgba(200, 153, 31, 0.08);
+}
+
+.glow-gold-sm {
+  box-shadow: 0 0 20px rgba(200, 153, 31, 0.15), 0 0 40px rgba(200, 153, 31, 0.06);
+}
+
+/* Section divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,153,31,0.3), transparent);
+}
+
+/* Roar rings — decorative pulsing circles */
+.roar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200, 153, 31, 0.35);
+  animation: roar-ring 2.4s ease-out infinite;
+}
+.roar-ring-2 { animation-delay: 0.8s; }
+.roar-ring-3 { animation-delay: 1.6s; }
+
+@keyframes roar-ring {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #060407; }
+::-webkit-scrollbar-thumb { background: #3a2c08; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #c8991f; }
+
+/* Marquee */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
